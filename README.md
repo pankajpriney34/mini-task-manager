@@ -48,12 +48,12 @@ Then  URL open: http://localhost:4200
 ng test
 
 ### Build Docker Image
-```bash
+
 docker build -t mini-task-manager .
 
 ### run the app
-```bash
-docker run -p 4200:80 mini-task-manager
+
+docker run --name mini-task-container -p 4200:80 mini-task-manager
 
 ### Folder structure
 src/
