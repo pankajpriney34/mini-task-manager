@@ -1,59 +1,68 @@
-# MiniTaskManager
+# Mini Task Manager
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.10.
+A simple task management app built with Angular 19, NgRx for state management, RxJS for reactivity, and Docker for deployment.
 
-## Development server
+---
 
-To start a local development server, run:
+## Features
+
+- Add, view, and manage tasks
+- Mark tasks as complete/incomplete
+- Filter tasks by status
+- Drag & drop to reorder
+- Global state management with NgRx
+- Task persistence via `localStorage`
+- Responsive design using Angular Material + Tailwind CSS
+- Unit tests for component and store logic
+- Dockerized for easy deployment
+
+---
+
+## Tech Stack
+
+- **Angular 19**
+- **NgRx** (Store, Effects, Selectors)
+- **RxJS**
+- **Angular Material + Tailwind**
+- **Docker**
+- **Jasmine + Karma** (Unit Testing)
+
+---
+
+## Project Setup
+
+### Install Dependencies
 
 ```bash
+npm install
+
+
+## Run Locally
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## URL
+Then  URL open: http://localhost:4200
 
-## Code scaffolding
+##FOR TEST run on terminal 
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
 ng test
-```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
+### Build Docker Image
 ```bash
-ng e2e
-```
+docker build -t mini-task-manager .
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### run the app
+```bash
+docker run -p 4200:80 mini-task-manager
 
-## Additional Resources
+### Folder structure
+src/
+├── app/
+│   ├── components/       # Presentational components (AddTask)
+│   ├── containers/       # Smart components (TaskList)
+│   ├── store/            # NgRx logic: actions, reducer, effects, selectors
+│   ├── shared/           # Material module, UI styles
+│   ├── models/           # Task model interface
+│   └── app.config.ts     # Standalone app config with providers
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+

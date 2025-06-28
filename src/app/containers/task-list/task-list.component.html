@@ -1,0 +1,27 @@
+<mat-card>
+  <div class="filters">
+    <button mat-button (click)="setFilter('all')">All</button>
+    <button mat-button (click)="setFilter('completed')">Completed</button>
+    <button mat-button (click)="setFilter('incomplete')">Incomplete</button>
+  </div>
+
+  <div
+    cdkDropList
+    (cdkDropListDropped)="drop($event)"
+    class="task-list"
+  >
+    <mat-list>
+      <mat-list-item
+        *ngFor="let task of tasks$ | async"
+        cdkDrag
+        (click)="toggleComplete(task.id)"
+        class="task-item"
+      >
+        <mat-checkbox [checked]="task.completed" class="mr-2">
+        </mat-checkbox>
+        <span [class.completed]="task.completed">{{ task.title }}</span>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</mat-card>
+

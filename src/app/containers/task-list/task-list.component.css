@@ -1,0 +1,53 @@
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 12px;
+}
+
+.task-item {
+  padding: 12px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  cursor: move;
+  transition: transform 0.2s;
+  user-select: none;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+
+.task-item:hover {
+  background-color: #f0f0f0;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+
+/* Prevents height from increasing while dragging */
+.cdk-drag-preview {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border: 1px dashed #007bff;
+  background-color: #ffffff;
+  padding: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 6px;
+  opacity: 0.95;
+}
+
+/* Keeps space in list when dragging (avoid jumpiness) */
+.cdk-drag-placeholder {
+  opacity: 0;
+  height: 48px; 
+}
