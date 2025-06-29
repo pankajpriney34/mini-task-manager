@@ -29,31 +29,85 @@ A simple task management app built with Angular 19, NgRx for state management, R
 
 ---
 
-## Project Setup
+## 🛠 Setup Instructions
 
-### Install Dependencies
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/pankajpriney34/mini-task-manager
+cd mini-task-manager
+```
+
+### 2. Install Dependencies
 
 ```bash
 npm install
+```
 
+### 3. Run Locally
 
-## Run Locally
+```bash
 ng serve
+```
 
-## URL
-Then  URL open: http://localhost:4200
+Navigate to `http://localhost:4200`
 
-##FOR TEST run on terminal 
+---
 
-ng test
+## 🐳 Run with Docker
 
-### Build Docker Image
+### 1. Build the Image
 
+```bash
 docker build -t mini-task-manager .
+```
 
-### run the app
+### 2. Run the Container
 
+```bash
 docker run --name mini-task-container -p 4200:80 mini-task-manager
+```
+
+Now open `http://localhost:4200` to view it.
+
+---
+
+## 🧪 Run Unit Tests
+
+```bash
+ng test
+```
+
+Tests include:
+- TaskListComponent
+- AddTaskComponent
+- Reducer
+- Effect
+- Selector
+
+---
+
+## Architectural Overview
+
+- **NgRx** manages global state (actions, reducer, selector, effects)
+- **Tasks stored in localStorage** via side effects
+- **Reactive Forms** used for task input
+- **Standalone Components** used with Angular 19's new config system
+
+---
+
+## Known Issues / Limitations
+
+- No backend — tasks persist only in `localStorage`
+- Categories are minimal (basic filter only)
+- Minor UI polish may be needed for production-level deployment
+
+---
+
+## Author
+
+- Name: Pankaj Priney
+- GitHub: [github.com/pankajpriney34](https://github.com/pankajpriney34)
 
 ### Folder structure
 src/
@@ -61,7 +115,7 @@ src/
 │   ├── components/       # Presentational components (AddTask)
 │   ├── containers/       # Smart components (TaskList)
 │   ├── store/            # NgRx logic: actions, reducer, effects, selectors
-│   ├── shared/           # Material module, UI styles
+│   ├── shared/           # Material module common only
 │   ├── models/           # Task model interface
 │   └── app.config.ts     # Standalone app config with providers
 
